@@ -67,7 +67,7 @@ jobs:
         run: echo "SITE_PACKAGE_PATH=$(python -m site --user-site)" >> $GITHUB_ENV
       - name: Typecheck
         run: |
-          python -m hatch run pyrefly_check --python_version=${{matrix.python-version}} --site-package-path=
+          python -m hatch run pyrefly_check --python_version=${{matrix.python-version}} --site-package-path=${{env.SITE_PACKAGE_PATH}}
 
   test-env:
     runs-on: ubuntu-latest

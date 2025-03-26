@@ -144,7 +144,3 @@ project_includes = [
 search_path = [
     "src"
 ]
-site_package_path = [
-    "venv/lib/python3.12/site-packages"
-]
-python_version = "3.12"

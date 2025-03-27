@@ -52,13 +52,13 @@ def print_result(
         path = path.relative_to(Path.cwd())
     except ValueError:
         pass
-
-    if result.violation:
-        rule_name = result.violation.rule_name
-        start_line = result.violation.range.start.line
-        start_col = result.violation.range.start.column
-        message = result.violation.message
-        if result.violation.autofixable:
+    violation = result.violation
+    if violation:
+        rule_name = violation.rule_name
+        start_line = violation.range.start.line
+        start_col = violation.range.start.column
+        message = violation.message
+        if violation.autofixable:
             message += " (has autofix)"
 
         if output_format == OutputFormat.fixit:
@@ -78,12 +78,13 @@ def print_result(
             raise NotImplementedError(f"output-format = {output_format!r}")
         click.secho(line, fg="yellow", err=stderr)
 
-        if show_diff and result.violation.diff:
-            echo_color_precomputed_diff(result.violation.diff)
+        if show_diff and violation.diff:
+            echo_color_precomputed_diff(violation.diff)
         return True
 
     elif result.error:
         # An exception occurred while processing a file
+        # type: ignore  # not-iterable
         error, tb = result.error
         click.secho(f"{path}: EXCEPTION: {error}", fg="red", err=stderr)
         click.echo(tb.strip(), err=stderr)
@@ -172,6 +173,7 @@ def fixit_stdin(
         content: FileContent = sys.stdin.buffer.read()
         config = generate_config(path, options=options)
 
+        # type: ignore  # type-mismatch
         updated = yield from fixit_bytes(
             path, content, config=config, autofix=autofix, metrics_hook=metrics_hook
         )
@@ -207,6 +209,7 @@ def fixit_file(
         content: FileContent = path.read_bytes()
         config = generate_config(path, options=options)
 
+        # type: ignore  # type-mismatch
         updated = yield from fixit_bytes(
             path, content, config=config, autofix=autofix, metrics_hook=metrics_hook
         )
@@ -306,5 +309,6 @@ def fixit_paths(
             options=options,
             metrics_hook=metrics_hook,
         )
+        # type: ignore  # pyrefly type-mismatch
         for _, results in trailrunner.run_iter(expanded_paths, fn):
             yield from results

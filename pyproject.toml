@@ -139,12 +139,14 @@ warn_unused_ignores = false
 [tool.pyrefly]
 project_includes = [
     # Start by adding a single file and we'll expand as we go
-    "src/fixit/util.py"
+    "src/fixit/util.py",
+    "src/fixit/api.py",
 ]
 search_path = [
     "src"
 ]
+# TODO: Change this to be passed in as an argument.
 site_package_path = [
-    "venv/lib/python3.12/site-packages"
+    "/Users/maggiemoss/python_projects/scrapers/lib/python3.13/site-packages"
 ]
-python_version = "3.12"
+python_version = "3.13"

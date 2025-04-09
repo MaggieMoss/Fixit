@@ -9,7 +9,7 @@ from collections import defaultdict
 from contextlib import contextmanager
 from dataclasses import replace
 from pathlib import Path
-from typing import Any, Collection, Generator, Iterator, Mapping, Optional, Set
+from typing import Collection, Generator, Iterator, Mapping, Optional, Set
 
 # pyrefly: ignore  # missing-module-attribute
 from libcst import CSTNode, CSTTransformer, Module, parse_module

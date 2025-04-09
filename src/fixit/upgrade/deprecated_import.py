@@ -5,10 +5,16 @@
 
 from typing import Dict, Sequence, Tuple
 
+# pyrefly: ignore  # missing-module-attribute
 import libcst
+
+# pyrefly: ignore  # missing-module-attribute
 from libcst._nodes.statement import ImportFrom
+
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import FullyQualifiedNameProvider
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import Invalid, LintRule, Valid
 
 
@@ -91,6 +97,7 @@ class FixitDeprecatedImport(LintRule):
         if isinstance(node.module, libcst.Name) and isinstance(node.names, Sequence):
             module = node.module.value
 
+            # pyrefly: ignore  # not-iterable
             for alias in node.names:
                 fqname = f"{module}.{alias.name.value}"
 

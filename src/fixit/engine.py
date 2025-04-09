@@ -11,8 +11,13 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Collection, Generator, Iterator, Mapping, Optional, Set
 
+# pyrefly: ignore  # missing-module-attribute
 from libcst import CSTNode, CSTTransformer, Module, parse_module
+
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import FullRepoManager, MetadataWrapper, ProviderT
+
+# pyrefly: ignore  # missing-module-attribute
 from moreorless import unified_diff
 
 from .ftypes import (
@@ -32,11 +37,11 @@ def diff_violation(path: Path, module: Module, violation: LintViolation) -> str:
     """
     Generate string diff representation of a violation.
     """
-
     orig = module.code
     mod = module.deep_replace(  # type:ignore # LibCST#906
         violation.node, violation.replacement
     )
+    # type: ignore  # type-mismatch
     assert isinstance(mod, Module)
     change = mod.code
 
@@ -106,6 +111,7 @@ class LintRunner:
             self.metrics[f"Count.{rule.name}"] = len(rule._violations)
             self.metrics[f"FixCount.{rule.name}"] = 0
             for violation in rule._violations:
+                # type: ignore  # pyrefly, todo
                 count += 1
 
                 if violation.replacement:
@@ -118,6 +124,7 @@ class LintRunner:
         self.metrics["Count.Total"] = count
 
         if metrics_hook:
+            # type: ignore # pyrefly bug
             metrics_hook(self.metrics)
 
         return count

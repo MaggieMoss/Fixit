@@ -19,6 +19,7 @@ from typing import (
     Union,
 )
 
+# pyrefly: ignore  # missing-module-attribute
 from libcst import (
     BaseSuite,
     BatchableCSTVisitor,
@@ -33,6 +34,8 @@ from libcst import (
     SimpleStatementSuite,
     TrailingWhitespace,
 )
+
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import (
     CodePosition,
     CodeRange,
@@ -103,6 +106,7 @@ class LintRule(BatchableCSTVisitor):
 
     def __init_subclass__(cls) -> None:
         if ParentNodeProvider not in cls.METADATA_DEPENDENCIES:
+            # pyrefly: ignore  # read-only
             cls.METADATA_DEPENDENCIES = (*cls.METADATA_DEPENDENCIES, ParentNodeProvider)
 
         invalid: List[Union[str, Invalid]] = getattr(cls, "INVALID", [])
@@ -222,6 +226,7 @@ class LintRule(BatchableCSTVisitor):
         message: Optional[str] = None,
         *,
         position: Optional[Union[CodePosition, CodeRange]] = None,
+        # pyrefly: ignore  # bad-specialization
         replacement: Optional[NodeReplacement[CSTNode]] = None,
     ) -> None:
         """
@@ -269,10 +274,12 @@ class LintRule(BatchableCSTVisitor):
             @functools.wraps(func)
             def wrapper(node: CSTNode) -> None:
                 if self._visit_hook:
+                    # pyrefly: ignore  # not-callable
                     with self._visit_hook(name):
                         return func(node)
                 return func(node)
 
+            # pyrefly: ignore  # bad-return
             return wrapper
 
         return {

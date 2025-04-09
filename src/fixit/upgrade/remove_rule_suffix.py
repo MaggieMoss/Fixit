@@ -3,9 +3,13 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
+# pyrefly: ignore  # missing-module-attribute
 import libcst
+
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import FullyQualifiedNameProvider
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import Invalid, LintRule, Valid
 
 

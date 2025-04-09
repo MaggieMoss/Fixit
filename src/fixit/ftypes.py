@@ -25,9 +25,16 @@ from typing import (
     Union,
 )
 
+# pyrefly: ignore  # missing-module-attribute
 from libcst import CSTNode, CSTNodeT, FlattenSentinel, RemovalSentinel
+
+# pyrefly: ignore  # missing-module-attribute
 from libcst._add_slots import add_slots
+
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import CodePosition as CodePosition, CodeRange as CodeRange
+
+# pyrefly: ignore  # missing-module-attribute
 from packaging.version import Version
 
 __all__ = ("Version",)
@@ -263,6 +270,7 @@ class LintViolation:
     range: CodeRange
     message: str
     node: CSTNode
+    # pyrefly: ignore  # bad-specialization
     replacement: Optional[NodeReplacement[CSTNode]]
     diff: str = ""
 

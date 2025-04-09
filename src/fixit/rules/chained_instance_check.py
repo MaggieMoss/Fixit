@@ -5,10 +5,16 @@
 
 from typing import Dict, Iterator, List, Set, Tuple
 
+# pyrefly: ignore  # missing-module-attribute
 import libcst as cst
+
+# pyrefly: ignore  # missing-module-attribute
 import libcst.matchers as m
+
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import QualifiedName, QualifiedNameProvider, QualifiedNameSource
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import Invalid, LintRule, Valid
 
 
@@ -121,6 +127,7 @@ class CollapseIsinstanceChecks(LintRule):
             if replacement is None:
                 replacement = operand
             else:
+                # pyrefly: ignore  # unknown
                 replacement = cst.BooleanOperation(
                     left=replacement, right=operand, operator=cst.Or()
                 )
@@ -157,6 +164,7 @@ class CollapseIsinstanceChecks(LintRule):
                 target, match = call.args[0].value, call.args[1].value
                 for possible_target in targets:
                     if target.deep_equals(possible_target):
+                        # pyrefly: ignore  # bad-specialization
                         targets[possible_target].append(match)
                         break
                 else:

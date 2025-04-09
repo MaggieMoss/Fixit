@@ -7,6 +7,7 @@ from pathlib import Path
 from textwrap import dedent
 from unittest import TestCase
 
+# pyrefly: ignore  # missing-module-attribute
 from libcst import (
     Call,
     ensure_type,
@@ -15,6 +16,8 @@ from libcst import (
     SimpleStatementLine,
     SimpleString,
 )
+
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import CodePosition, CodeRange
 
 from ..engine import diff_violation

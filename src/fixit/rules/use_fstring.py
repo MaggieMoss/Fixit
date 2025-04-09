@@ -6,9 +6,13 @@
 import re
 from typing import Callable, cast, List, Optional
 
+# pyrefly: ignore  # missing-module-attribute
 import libcst as cst
+
+# pyrefly: ignore  # missing-module-attribute
 import libcst.matchers as m
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import Invalid, LintRule, Valid
 
 

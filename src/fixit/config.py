@@ -29,7 +29,10 @@ from typing import (
     Union,
 )
 
+# pyrefly: ignore  # missing-module-attribute
 from packaging.specifiers import SpecifierSet
+
+# pyrefly: ignore  # missing-module-attribute
 from packaging.version import InvalidVersion, Version
 
 from .format import FORMAT_STYLES
@@ -102,6 +105,7 @@ def local_rule_loader(rule: QualifiedRule) -> Iterator[None]:
     conflicts if loaded normally using a munged ``sys.path``.
     """
     try:
+        # pyrefly: ignore  # missing-module-attribute
         import fixit.local
 
         assert hasattr(fixit.local, "__path__")
@@ -374,6 +378,7 @@ def get_options(
                     config=config,
                 )
 
+            # pyrefly: ignore  # bad-specialization
             rule_configs[rule_name][key] = value
 
     return rule_configs
@@ -436,13 +441,16 @@ def merge_configs(
         except ValueError:  # not relative to subpath
             return
 
+        # pyrefly: ignore  # unbound-name
         config_dir = config.path.parent
         for rule in enable:
+            # pyrefly: ignore  # unbound-name
             qual_rule = parse_rule(rule, config_dir, config)
             enable_rules.add(qual_rule)
             disable_rules.discard(qual_rule)
 
         for rule in disable:
+            # pyrefly: ignore  # unbound-name
             qual_rule = parse_rule(rule, config_dir, config)
             enable_rules.discard(qual_rule)
             disable_rules.add(qual_rule)
@@ -457,6 +465,7 @@ def merge_configs(
                 except InvalidVersion:
                     raise ConfigError(
                         f"'python-version' {python_version!r} is not valid",
+                        # pyrefly: ignore  # unbound-name
                         config=config,
                     )
 
@@ -466,7 +475,9 @@ def merge_configs(
         if formatter:
             if formatter not in FORMAT_STYLES:
                 raise ConfigError(
-                    f"'formatter' {formatter!r} not supported", config=config
+                    f"'formatter' {formatter!r} not supported",
+                    # pyrefly: ignore  # unbound-name
+                    config=config,
                 )
 
             target_formatter = formatter
@@ -500,6 +511,7 @@ def merge_configs(
 
         if value := data.pop("output-format", ""):
             try:
+                # pyrefly: ignore  # bad-assignment
                 output_format = OutputFormat(value)
             except ValueError as e:
                 raise ConfigError(
@@ -579,6 +591,7 @@ def generate_config(
 
     if options:
         if options.tags:
+            # pyrefly: ignore  # bad-assignment
             config.tags = options.tags
 
         if options.rules:
@@ -586,6 +599,7 @@ def generate_config(
             config.disable = []
 
         if options.output_format:
+            # pyrefly: ignore  # bad-assignment
             config.output_format = options.output_format
 
         if options.output_template:

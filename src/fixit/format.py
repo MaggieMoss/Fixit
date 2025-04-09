@@ -12,6 +12,7 @@ NOTE: be sure to update docs/guide/configuration.rst to include any new formatte
 from pathlib import Path
 from typing import Dict, Optional, Type
 
+# pyrefly: ignore  # missing-module-attribute
 from libcst import Module
 
 from .ftypes import Config, FileContent
@@ -44,7 +45,10 @@ class BlackFormatter(Formatter):
     STYLE = "black"
 
     def format(self, module: Module, path: Path) -> FileContent:
+        # pyrefly: ignore  # missing-module-attribute
         import black
+
+        # pyrefly: ignore  # missing-module-attribute
         import ufmt.util
 
         mode = ufmt.util.make_black_config(path)
@@ -58,7 +62,10 @@ class UfmtFormatter(Formatter):
     STYLE = "ufmt"
 
     def format(self, module: Module, path: Path) -> FileContent:
+        # pyrefly: ignore  # missing-module-attribute
         import ufmt
+
+        # pyrefly: ignore  # missing-module-attribute
         import ufmt.util
 
         black_config = ufmt.util.make_black_config(path)

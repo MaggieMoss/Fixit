@@ -18,6 +18,7 @@ from click.testing import CliRunner
 
 # pyrefly: ignore  # missing-module-attribute
 from fixit import __version__
+
 # pyrefly: ignore  # missing-module-attribute
 from fixit.cli import main
 

@@ -31,6 +31,7 @@ from typing import (
 
 # pyrefly: ignore  # missing-module-attribute
 from packaging.specifiers import SpecifierSet
+
 # pyrefly: ignore  # missing-module-attribute
 from packaging.version import InvalidVersion, Version
 
@@ -475,7 +476,8 @@ def merge_configs(
             if formatter not in FORMAT_STYLES:
                 raise ConfigError(
                     # pyrefly: ignore  # unbound-name
-                    f"'formatter' {formatter!r} not supported", config=config
+                    f"'formatter' {formatter!r} not supported",
+                    config=config,
                 )
 
             target_formatter = formatter

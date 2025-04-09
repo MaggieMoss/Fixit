@@ -47,6 +47,7 @@ class BlackFormatter(Formatter):
     def format(self, module: Module, path: Path) -> FileContent:
         # pyrefly: ignore  # missing-module-attribute
         import black
+
         # pyrefly: ignore  # missing-module-attribute
         import ufmt.util
 
@@ -63,6 +64,7 @@ class UfmtFormatter(Formatter):
     def format(self, module: Module, path: Path) -> FileContent:
         # pyrefly: ignore  # missing-module-attribute
         import ufmt
+
         # pyrefly: ignore  # missing-module-attribute
         import ufmt.util
 

@@ -4,6 +4,7 @@
 # LICENSE file in the root directory of this source tree.
 # pyrefly: ignore  # missing-module-attribute
 import libcst as cst
+
 # pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import QualifiedNameProvider
 

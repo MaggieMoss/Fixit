@@ -16,6 +16,7 @@ from libcst import (
     Name,
     parse_expression,
 )
+
 # pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import QualifiedNameProvider
 

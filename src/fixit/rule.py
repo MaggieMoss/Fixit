@@ -34,6 +34,7 @@ from libcst import (
     SimpleStatementSuite,
     TrailingWhitespace,
 )
+
 # pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import (
     CodePosition,

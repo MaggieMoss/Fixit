@@ -5,6 +5,7 @@
 
 # pyrefly: ignore  # missing-module-attribute
 from fixit.config import collect_rules
+
 # pyrefly: ignore  # missing-module-attribute
 from fixit.ftypes import Config, QualifiedRule
 

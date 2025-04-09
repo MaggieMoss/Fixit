@@ -7,6 +7,7 @@ from typing import Set
 
 # pyrefly: ignore  # missing-module-attribute
 import libcst
+
 # pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import QualifiedNameProvider, ScopeProvider
 

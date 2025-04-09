@@ -7,6 +7,7 @@ from typing import cast, FrozenSet, Set, Union
 
 # pyrefly: ignore  # missing-module-attribute
 import libcst as cst
+
 # pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import QualifiedName, QualifiedNameProvider, QualifiedNameSource
 

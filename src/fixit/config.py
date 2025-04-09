@@ -475,8 +475,8 @@ def merge_configs(
         if formatter:
             if formatter not in FORMAT_STYLES:
                 raise ConfigError(
-                    # pyrefly: ignore  # unbound-name
                     f"'formatter' {formatter!r} not supported",
+                    # pyrefly: ignore  # unbound-name
                     config=config,
                 )
 

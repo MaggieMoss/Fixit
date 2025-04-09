@@ -10,6 +10,7 @@ from textwrap import dedent
 from typing import List, Sequence, Tuple, Type
 from unittest import TestCase
 
+# pyrefly: ignore  # missing-module-attribute
 from click.testing import CliRunner
 
 from .. import config
@@ -478,9 +479,13 @@ class ConfigTest(TestCase):
                 config.generate_config(self.tdp / "outer" / "foo.py")
 
     def test_collect_rules(self) -> None:
+        # pyrefly: ignore  # missing-module-attribute
         from fixit.rules.avoid_or_in_except import AvoidOrInExcept
+        # pyrefly: ignore  # missing-module-attribute
         from fixit.rules.cls_in_classmethod import UseClsInClassmethod
+        # pyrefly: ignore  # missing-module-attribute
         from fixit.rules.no_namedtuple import NoNamedTuple
+        # pyrefly: ignore  # missing-module-attribute
         from fixit.rules.use_types_from_typing import UseTypesFromTyping
 
         AvoidOrInExcept.TAGS = {"exceptions"}

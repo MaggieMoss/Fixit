@@ -10,8 +10,11 @@ from functools import partial
 from pathlib import Path
 from typing import Generator, Iterable, List, Optional
 
+# pyrefly: ignore  # missing-module-attribute
 import click
+# pyrefly: ignore  # missing-module-attribute
 import trailrunner
+# pyrefly: ignore  # missing-module-attribute
 from moreorless.click import echo_color_precomputed_diff
 
 from .config import collect_rules, generate_config

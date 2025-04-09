@@ -5,10 +5,14 @@
 
 from typing import Sequence
 
+# pyrefly: ignore  # missing-module-attribute
 import libcst as cst
+# pyrefly: ignore  # missing-module-attribute
 import libcst.matchers as m
+# pyrefly: ignore  # missing-module-attribute
 from libcst.helpers import ensure_type
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import Invalid, LintRule, Valid
 
 

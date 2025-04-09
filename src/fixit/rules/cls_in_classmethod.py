@@ -5,7 +5,9 @@
 
 from typing import List, Union
 
+# pyrefly: ignore  # missing-module-attribute
 import libcst as cst
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import (
     Assignment,
     QualifiedName,
@@ -14,6 +16,7 @@ from libcst.metadata import (
     ScopeProvider,
 )
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import Invalid, LintRule, Valid
 
 

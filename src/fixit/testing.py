@@ -227,4 +227,5 @@ def add_lint_rule_tests_to_module(
         test_module = module_attrs.get("__package__")
         assert isinstance(test_module, str)
         for test_case_class in test_case_classes:
+            # pyrefly: ignore  # no-access
             test_case_class.__module__ = test_module

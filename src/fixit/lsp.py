@@ -8,7 +8,9 @@ from functools import partial
 from pathlib import Path
 from typing import Any, Callable, cast, Dict, Generator, List, Optional, TypeVar
 
+# pyrefly: ignore  # missing-module-attribute
 import pygls.uris as Uri
+# pyrefly: ignore  # missing-module-attribute
 from lsprotocol.types import (
     Diagnostic,
     DiagnosticSeverity,
@@ -22,7 +24,9 @@ from lsprotocol.types import (
     TEXT_DOCUMENT_FORMATTING,
     TextEdit,
 )
+# pyrefly: ignore  # missing-module-attribute
 from pygls.server import LanguageServer
+# pyrefly: ignore  # missing-module-attribute
 from pygls.workspace.text_document import TextDocument
 
 from .__version__ import __version__

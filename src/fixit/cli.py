@@ -9,8 +9,10 @@ import unittest
 from pathlib import Path
 from typing import Dict, Optional, Sequence, Set, Type
 
+# pyrefly: ignore  # missing-module-attribute
 import click
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import __version__
 
 from .api import fixit_paths, print_result
@@ -75,6 +77,7 @@ def splash(
 @click.option(
     "--output-format",
     "-o",
+    # pyrefly: ignore  # bad-argument-count
     type=click.Choice([o.name for o in OutputFormat], case_sensitive=False),
     show_choices=True,
     default=None,
@@ -330,6 +333,7 @@ def debug(ctx: click.Context, paths: Sequence[Path]) -> None:
         paths = [Path.cwd()]
 
     try:
+        # pyrefly: ignore  # missing-module-attribute
         from rich import print as pprint
     except ImportError:
         from pprint import pprint  # type: ignore
@@ -361,6 +365,7 @@ def validate_config_command(ctx: click.Context, path: Path) -> None:
     exceptions = validate_config(path)
 
     try:
+        # pyrefly: ignore  # missing-module-attribute
         from rich import print as pprint
     except ImportError:
         from pprint import pprint  # type: ignore

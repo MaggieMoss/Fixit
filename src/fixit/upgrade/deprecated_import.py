@@ -5,10 +5,14 @@
 
 from typing import Dict, Sequence, Tuple
 
+# pyrefly: ignore  # missing-module-attribute
 import libcst
+# pyrefly: ignore  # missing-module-attribute
 from libcst._nodes.statement import ImportFrom
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import FullyQualifiedNameProvider
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import Invalid, LintRule, Valid
 
 

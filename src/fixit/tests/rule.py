@@ -8,7 +8,9 @@ from textwrap import dedent, indent
 from unittest import TestCase
 from unittest.mock import MagicMock
 
+# pyrefly: ignore  # missing-module-attribute
 import libcst as cst
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import CodePosition, CodeRange
 
 from ..engine import LintRunner

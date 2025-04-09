@@ -3,10 +3,14 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
+# pyrefly: ignore  # missing-module-attribute
 import libcst as cst
+# pyrefly: ignore  # missing-module-attribute
 import libcst.matchers as m
+# pyrefly: ignore  # missing-module-attribute
 from libcst.helpers import ensure_type
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import Invalid, LintRule, Valid
 
 

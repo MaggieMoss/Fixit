@@ -6,6 +6,7 @@
 
 from typing import Optional
 
+# pyrefly: ignore  # missing-module-attribute
 from libcst import (
     Arg,
     BaseExpression,
@@ -15,8 +16,10 @@ from libcst import (
     Name,
     parse_expression,
 )
+# pyrefly: ignore  # missing-module-attribute
 from libcst.metadata import QualifiedNameProvider
 
+# pyrefly: ignore  # missing-module-attribute
 from fixit import Invalid, LintRule, Valid
 
 

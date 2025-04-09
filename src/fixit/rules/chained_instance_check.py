@@ -127,6 +127,7 @@ class CollapseIsinstanceChecks(LintRule):
             if replacement is None:
                 replacement = operand
             else:
+                # pyrefly: ignore  # unknown
                 replacement = cst.BooleanOperation(
                     left=replacement, right=operand, operator=cst.Or()
                 )

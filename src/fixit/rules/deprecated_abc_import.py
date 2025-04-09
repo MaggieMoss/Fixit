@@ -193,6 +193,7 @@ class DeprecatedABCImport(LintRule):
 
         # Get imports in this statement
         import_names = (
+            # pyrefly: ignore  # not-iterable
             [name.name.value for name in node.names]
             if type(node.names) is tuple
             else []
@@ -213,6 +214,7 @@ class DeprecatedABCImport(LintRule):
                 # so that we can add an additional `SimpleStatementLine` for the new
                 # import
                 self.update_module = True
+                # pyrefly: ignore  # bad-assignment
                 self.imports_names = import_names
             else:
                 self.report(
@@ -241,6 +243,7 @@ class DeprecatedABCImport(LintRule):
                 ),
             ),
         )
+        # pyrefly: ignore  # bad-return
         return imp[0] if len(imp) > 0 and isinstance(imp[0], cst.ImportFrom) else None
 
     def leave_Module(self, node: cst.Module) -> None:
